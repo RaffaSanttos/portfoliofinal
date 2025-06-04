@@ -51,37 +51,29 @@
             height: 100%;
         }
 
-        /* Copyright fora da borda */
-        .copy-label {
-            position: fixed;
-            bottom: 0px;
-            left: 5%;
-            transform: translateX(-50%);
-            font-size: 0.875rem;
-            pointer-events: none;
-            z-index: 9999;
-            color: rgba(255, 255, 255, 0.719);
-        }
         a {
             text-decoration: none;
             color: white;
         }
+
         nav ul li a {
             transition: all 0.3s ease;
         }
+
         nav ul li a:hover {
             color: rgb(156, 156, 156);
-            padding-left: 5px; /* leve deslocamento */
+            padding-left: 5px;
         }
+
         #vanta-bg {
             position: fixed;
             top: 0; left: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
-            pointer-events: none; /* impede que o fundo bloqueie cliques */
+            pointer-events: none;
         }
-        
+
         .selected{
             pointer-events: none;
             color: rgb(156, 156, 156);
@@ -108,8 +100,8 @@
                     <div class="container" >
                         <nav class="mt-4">
                             <ul class="list-unstyled" style="padding: 0px 0 0 20px;">
+                                <li><a href="index.html"><strong>//Home</strong></a></li>
                                 <li class="selected"><strong>//{    *    }</strong></li>
-                                <li><a href="projects.html"><strong>//Projects</strong></a></li>
                                 <li><a href="index.html"><strong>//Contact</strong></a></li>
                                 <li><a href="index.html"><strong>//Login</strong></a></li>
                             </ul>
@@ -122,14 +114,7 @@
 
                     </div>
                     <div class="container h-100">
-                        <div class="position-relative h-100">
-                            <div class="w-25 m-5 p-2" style="position: absolute; top: 30%; left: auto; margin-right: 50px;">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur soluta quam ex expedita sequi aliquid ipsa et, eum consequatur sed? Nisi quod iure dolore tempore est, saepe mollitia incidunt aut?</p>
-                            </div>
-                            <div class="position-absolute bottom-0 end-0 w-25 m-3 p-2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur soluta quam ex expedita sequi aliquid ipsa et, eum consequatur sed? Nisi quod iure dolore tempore est, saepe mollitia incidunt aut?</p>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -152,6 +137,5 @@
             zoom: 0.85
         });
     </script>
-
 </body>
 </html>
