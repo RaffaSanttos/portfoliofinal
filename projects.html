@@ -80,6 +80,52 @@
             padding-left: 5px;
         }
 
+        .project-list {
+            overflow-y: auto;
+            max-height: 75%;
+            padding-right: 10px;
+            scrollbar-width: none;         /* Firefox */
+            -ms-overflow-style: none;      /* IE e Edge */
+        }
+
+        .project-list::-webkit-scrollbar {
+            display: none;                 /* Chrome, Safari, Edge (novo) */
+        }
+
+        /* Delay escalonado nos itens */
+        .project-item:nth-child(1) { animation-delay: 0.1s; }
+        .project-item:nth-child(2) { animation-delay: 0.2s; }
+        .project-item:nth-child(3) { animation-delay: 0.3s; }
+        /* Adicione mais conforme necessário */
+
+        /* Animação */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: transparent;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 8px;
+        }
+
+        .project-card:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .project-img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
     </style>
 </head>
 <body>
@@ -92,7 +138,7 @@
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <!-- Coluna da Nav -->
-                <div class="col-4 text-white p-3 d-flex flex-column">
+                <div class="col-4 text-white p-3 d-flex flex-column" style="height: 100%; overflow: hidden;">
                     <div class="container" style="height: 15%;">
                         <h1 style="margin: 0; font-size: 50px;">Rafael Santos</h1>
                         <h2 style="font-size: 20px;">Desenvolvedor</h2>
@@ -110,12 +156,53 @@
                 </div>
                 <!-- Coluna de Conteúdo -->
                 <div class="col-8 text-white p-3 d-flex flex-column">
-                    <div class="container h-25" style="height: 15%;">
+                <div class="container" style="height: 15%;">
+                    <!-- espaço superior -->
+                </div>
 
-                    </div>
-                    <div class="container h-100">
-                        
-                    </div>
+                <div class="container flex-grow-1 overflow-auto project-list">
+                    <ul class="list-unstyled">
+                        <li class="project-item" style="margin: 10px;">
+                            <a href="https://link-do-projeto.com" class="project-card text-decoration-none text-white mb-3">
+                                <div class="d-flex project-card-inner p-3">
+                                    <img src="https://via.placeholder.com/100" class="project-img me-3" alt="Imagem do projeto" />
+                                    <div>
+                                        <h5 class="mb-1">Nome do Projeto</h5>
+                                        <p class="mb-1 small text-muted">Descrição breve do projeto explicando sua função e contexto.</p>
+                                        <p class="mb-1 small"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
+                                        <p class="mb-0 small"><strong>Contribuição:</strong> Responsável por front-end e integração com API.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project-item" style="margin: 10px;">
+                            <a href="https://link-do-projeto.com" class="project-card text-decoration-none text-white mb-3">
+                                <div class="d-flex project-card-inner p-3">
+                                    <img src="https://via.placeholder.com/100" class="project-img me-3" alt="Imagem do projeto" />
+                                    <div>
+                                        <h5 class="mb-1">Nome do Projeto</h5>
+                                        <p class="mb-1 small text-muted">Descrição breve do projeto explicando sua função e contexto.</p>
+                                        <p class="mb-1 small"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
+                                        <p class="mb-0 small"><strong>Contribuição:</strong> Responsável por front-end e integração com API.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="project-item" style="margin: 10px;">
+                            <a href="https://link-do-projeto.com" class="project-card text-decoration-none text-white mb-3">
+                                <div class="d-flex project-card-inner p-3">
+                                    <img src="https://via.placeholder.com/100" class="project-img me-3" alt="Imagem do projeto" />
+                                    <div>
+                                        <h5 class="mb-1">Nome do Projeto</h5>
+                                        <p class="mb-1 small text-muted">Descrição breve do projeto explicando sua função e contexto.</p>
+                                        <p class="mb-1 small"><strong>Tecnologias:</strong> HTML, CSS, JavaScript</p>
+                                        <p class="mb-0 small"><strong>Contribuição:</strong> Responsável por front-end e integração com API.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Adicione mais projetos -->
+                    </ul>
                 </div>
             </div>
         </div>
