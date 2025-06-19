@@ -1,21 +1,37 @@
 <?php
 session_start();
-$db = new SQLite3('users.db');
 
-$email = $_POST['logon'];
-$password = $_POST['password'];
+// Conectar ao banco
+$conn = new mysqli("localhost", "root", "", "portfolio_login");
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
+}
 
-$stmt = $db->prepare('SELECT * FROM user WHERE logon = :logon AND password = :password');
-$stmt->bindValue(':logon', $logon, SQLITE3_TEXT);
-$stmt->bindValue(':password', $password, SQLITE3_TEXT);
-$result = $stmt->execute();
+// Verificar se foi enviado via POST
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = $_POST['logon'];
+    $password = $_POST['password'];
 
-if ($row = $result->fetchArray()) {
-    $_SESSION['loggedin'] = true;
-    header('Location: dashboard.php');
-    exit;
-} else {
-    header('Location: devmode.html?error=1');
-    exit;
+    // Buscar o usuário no banco
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    // Verifica se o usuário existe
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        // Verifica a senha
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['authenticated'] = true;
+            header("Location: painel.php");
+            exit();
+        }
+    }
+
+    // Se falhar
+    echo "<script>alert('Usuário ou senha inválidos.'); window.history.back();</script>";
 }
 ?>
